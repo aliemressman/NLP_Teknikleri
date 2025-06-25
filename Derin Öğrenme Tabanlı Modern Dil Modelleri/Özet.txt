@@ -1,0 +1,97 @@
+1- 🔄 RNN (Recurrent Neural Network) Nedir?
+
+RNN, sıralı verilerle (örneğin metin, ses, zaman serisi) çalışan özel bir yapay sinir ağıdır.
+En önemli özelliği, önceki adımlardan aldığı bilgiyi hafızasında tutarak sonraki adımlara aktarmasıdır.
+Bu sayede, örneğin bir cümledeki kelimeleri sırayla işlerken önceki kelimelerin etkisini kullanabilir.
+Ancak klasik RNN'ler uzun dizilerde bilgi taşımada zorluk yaşar. Çünkü eğitim sırasında gradyanlar (geri yayılım sırasında) çok küçük değerlere düşer, buna “vanishing gradient” (kaybolan gradyan) problemi denir.
+Bu problem, modelin uzun vadeli bağlamı öğrenmesini zorlaştırır.
+
+2- 🧠 LSTM (Long Short-Term Memory) Nedir?
+
+LSTM, RNN’in geliştirilmiş ve daha güçlü bir versiyonudur.
+Uzun dizilerdeki bilgiyi çok daha iyi tutmak için tasarlanmıştır.
+
+Bunu, içinde bulunan “kapılar (gates)” sayesinde yapar:
+Forget Gate: Hangi bilginin unutulacağına karar verir.
+Input Gate: Yeni bilginin hafızaya ne kadar ekleneceğine karar verir.
+Output Gate: Hafızadan hangi bilginin çıkacağını belirler.
+Bu kapılar, LSTM’nin önemli bilgileri uzun süre saklamasını ve gereksiz bilgileri unutmasını sağlar.
+Böylece, LSTM vanishing gradient problemine karşı dayanıklıdır ve uzun süreli bağımlılıkları öğrenmede başarılıdır.
+
+
+Kısaca Özet:
+RNN, sıralı verilerde temel bir hafıza mekanizması sağlar ama uzun bağımlılıkları öğrenmekte zayıftır.
+LSTM, RNN’in gelişmiş versiyonu olup, kapılar sayesinde önemli bilgileri uzun süre tutar ve daha karmaşık bağımlılıkları öğrenebilir.
+Eğer veriniz uzun cümlelerden, paragraf ya da zaman serilerinden oluşuyorsa LSTM genellikle daha iyi sonuç verir.
+
+
+⚡ 3. Transformer Tabanlı Modeller (GPT, BERT, LLaMA)
+✅ Genel Özellikler (Transformer mimarisi):
+Paralel işlem yapabilir: RNN gibi sırayla işlemez, tüm girdiyi aynı anda işler.
+
+Self-attention (öz-dikkat) mekanizması: Hangi kelimenin diğerlerine ne kadar dikkat edeceğini öğrenir.
+
+Uzun bağlamda daha güçlü: LSTM’den bile daha derin bağımlılıkları yakalayabilir.
+
+
+🔹 GPT (Generative Pre-trained Transformer)
+Amaç: Metin üretimi – bir başlangıç verilip devamını tahmin eder.
+
+Yapı: Sadece “decoder” katmanından oluşur.
+
+Çalışma prensibi: Soldan sağa tahmin yapar (önceki kelimelerden sonraki tahmin).
+
+Kullanım: ChatGPT, yazı oluşturma, kod tamamlama, hikaye yazımı.
+
+Versiyonlar: GPT-2, GPT-3, GPT-4, GPT-4o vs.
+
+
+🔹 BERT (Bidirectional Encoder Representations from Transformers)
+Amaç: Anlama – cümlenin veya metnin içeriğini anlamak ve analiz etmek.
+
+Yapı: Sadece “encoder” katmanından oluşur.
+
+Çalışma prensibi: Cümleyi iki yönlü (hem sola hem sağa) okur.
+
+Kullanım: Metin sınıflandırma, duygu analizi, Soru-Cevap sistemleri, Named Entity Recognition.
+
+Not: Üretim için uygun değildir; sınıflama ve anlamaya odaklıdır.
+
+🔹 LLaMA (Large Language Model Meta AI)
+Facebook (Meta) tarafından geliştirilen açık kaynak büyük dil modelidir.
+
+Amaç: GPT gibi çok amaçlı kullanım: üretim, soru-cevap, çeviri.
+
+Yapı: Transformer "decoder" tabanlı (GPT’ye benzer).
+
+Avantaj: Daha az veri ve kaynakla eğitilmesine rağmen yüksek performans sunar.
+
+Kullanım: Chatbot’lar, uygulama içi dil modelleri, araştırmalar.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
