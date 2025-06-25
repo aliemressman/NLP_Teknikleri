@@ -1,0 +1,64 @@
+🔢 1. Olasılıksal Dil Modelleri ve N-Gram Modelleri
+Amaç:
+Dil modelleri, bir cümledeki kelimelerin sırasıyla gelme olasılıklarını tahmin eder. Bu sayede dilin yapısına uygun yeni metinler üretilebilir veya mevcut metnin anlamı çözümlenebilir.
+
+📌 N-Gram Nedir?
+N-Gram modelleri, bir cümledeki kelimeleri ardışık gruplar (gramlar) halinde işler:
+
+N Değeri	Adı	Örnek (This is a sentence)
+N=1	Unigram	["this", "is", "a", "sentence"]
+N=2	Bigram	["this is", "is a", "a sentence"]
+N=3	Trigram	["this is a", "is a sentence"]
+
+🧠 Mantık:
+Daha büyük n değeri daha fazla bağlam anlamına gelir, ancak veri ihtiyacı ve hesaplama maliyeti de artar.
+
+🔍 2. Hidden Markov Models (HMM)
+📌 Tanım:
+HMM, gizli (gözlemlenemeyen) durumlara bağlı olarak gözlemlenebilen çıktılar üreten olasılıksal bir modeldir. Dil modellemede genellikle etiketleme görevleri (örneğin: POS tagging) için kullanılır.
+
+🔁 Çalışma Prensibi:
+Her kelime, bir durum (örn: isim, fiil) tarafından üretilmiştir.
+
+Bu durumlar arasında geçiş olasılıkları vardır.
+
+Aynı zamanda her durumun belirli kelimeleri üretme olasılığı vardır.
+
+🧱 Yapı:
+Durumlar (States): Gizli katman, örn. İsim, Fiil
+
+Gözlemler (Observations): Görülen kelimeler
+
+Geçiş Olasılığı: Bir durumdan diğerine geçiş ihtimali
+
+Yayılma Olasılığı: Bir durumdan belirli bir kelimenin üretilme ihtimali
+
+📈 Kullanım:
+Viterbi Algoritması ile en olası durum dizisi bulunur.
+
+⚖️ 3. Maximum Entropy Models (MaxEnt)
+📌 Tanım:
+MaxEnt modelleri, hiçbir ön yargı taşımadan, yalnızca elimizdeki veriden öğrenilen özelliklere dayanarak en olası dağılımı tahmin etmeye çalışır.
+
+✨ Avantajı:
+Bağımsızlık varsayımı gerekmez (HMM'deki gibi "önceki duruma bağlı" kısıtı yoktur).
+
+Her tür özellik (feature) modele eklenebilir: sözcük, POS etiketi, bağlam, vb.
+
+🧮 Modelleme:
+MaxEnt modeli, aşağıdaki gibi bir log-linear olasılık fonksiyonu kullanır:
+
+f_i(x, y): Özellik fonksiyonu
+
+λ_i: Her özelliğin ağırlığı
+
+Z(x): Normalizasyon sabiti
+
+📌 Kullanım Alanı:
+POS tagging, Named Entity Recognition (NER), sentiment analysis, vs.
+
+🔚 Özet Kıyaslama:
+Model	Yapısı	Bağımlılık	Esneklik	Kullanım
+N-Gram	İstatistiksel	Kısıtlı (n kelimeye)	Düşük	Metin üretimi
+HMM	Olasılıksal	Markov zinciri	Orta	POS tagging
+MaxEnt	Özellik tabanlı	Bağımsız	Yüksek	NLP genel
